@@ -1,3 +1,8 @@
 .form-row {
     padding-top: 10px;
 }
+
+#orderDiv {
+    display: flex;
+    flex-direction: row;
+}
