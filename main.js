@@ -5,14 +5,65 @@ function prepReport() {
 
 function resetForm() {
     console.log("Clicked Reset");
+    fnameTxt.value = "";
+    lnameTxt.value = "";
+    linfeetInt.value = "";
+    inCornerInt.value = "";
+    outCornerInt.value = "";
+    endCapInt.value = "";
+    downspoutInt.value = "";
+    elbowInt.value = "";
+    dropInt.value = "";
+    leafguardBool.checked = false
+
+    linearfeet = 0;
+    insideCorners = 0;
+    outsideCorners = 0;
+    endCaps = 0;
+    downSpouts = 0;
+    elbows = 0;
+    drops = 0;
+    reCalculate()
 }
 
 function reCalculate() {
     console.log("Recalculating Total...");
-    linearFootageRpt.innerText = linearfeet + " ft of gutter - $" + (linearfeet*gutter10ftCost);
-    insideCornerRpt.innerText = insideCorners + " inside corners - $" + (insideCorners*insideCornerCost);
-    outsideCornerRpt.innerText = outsideCorners + " outside corners - $" + (outsideCorners*outsideCornerCost);
-    endCapRpt.innerText = endCaps + " end caps - $" + (endCapInt*endCapCost);
+    linearFootageTotal = linearfeet*gutter10ftCost;
+    insideCornerTotal = insideCorners*insideCornerCost;
+    outsideCornerTotal = outsideCorners*outsideCornerCost;
+    endCapTotal = endCaps*endCapCost;
+    downSpoutTotal = downSpouts*downspoutCost;
+    elbowTotal = elbows*elbowCost;
+    dropTotal = drops*dropCost;
+    console.log(leafguard)
+    if (leafguard) {
+        console.log("leafguard is checked")
+        leafguardTotal = linearfeet*leafguardCost;
+    } else {
+        console.log("leafguard is not checked")
+        leafguardTotal = 0
+    }
+
+    totalCost = linearFootageTotal+insideCornerTotal+outsideCornerTotal+endCapTotal+downSpoutTotal+elbowTotal+dropTotal+leafguardTotal
+    console.log("Total is: "+totalCost)
+    updateFeedback()
+}
+
+function updateFeedback() {
+    console.log("updateFeedback!")
+    linearFootageRpt.innerText = linearfeet + " ft of Gutter - $" + linearFootageTotal.toFixed(2);
+    insideCornerRpt.innerText = insideCorners + " Inside Corners - $" + insideCornerTotal.toFixed(2);
+    outsideCornerRpt.innerText = outsideCorners + " Outside Corners - $" + outsideCornerTotal.toFixed(2);
+    endCapRpt.innerText = endCaps + " End Caps - $" + endCapTotal.toFixed(2);
+    downSpoutRpt.innerText = (downSpouts*10) + " ft of Downspout - $" + downSpoutTotal.toFixed(2);
+    elbowRpt.innerText = elbows + " Elbows - $" + elbowTotal.toFixed(2);
+    dropRpt.innerText = drops + " Drops - $" + dropTotal.toFixed(2);
+    if (leafguard) {
+        leafguardRpt.innerText = linearfeet + " ft of Leafguard - $" + linearFootageTotal.toFixed(2);
+    } else {
+        leafguardRpt.innerText = 0 + " ft of Leafguard - $0.00";
+    }
+    totalRpt.innerText = "Total: $" + totalCost.toFixed(2)
 }
 
 function main() {
@@ -63,7 +114,9 @@ function main() {
     elbowRpt = document.getElementById("elbowRpt");
     dropRpt = document.getElementById("dropRpt");
     leafguardRpt = document.getElementById("leafguardRpt");
+    totalRpt = document.getElementById("totalRpt");
 
+    // Event Handling
     fnameTxt.addEventListener("input", () => {
         firstName = fname.value;
     });
@@ -71,35 +124,63 @@ function main() {
         lastName = lnameTxt.value;
     });
     linfeetInt.addEventListener("input", () => {
-        linearfeet = linfeetInt.value;
+        if (linfeetInt.value == "") {
+            linearfeet = 0;
+        } else {
+            linearfeet = linfeetInt.value;    
+        }
         reCalculate();
     });
     inCornerInt.addEventListener("input", () => {
-        insideCorners = inCornerInt.value;
+        if (inCornerInt.value == "") {
+            insideCorners = 0;
+        } else {
+            insideCorners = inCornerInt.value;
+        }
         reCalculate();
     });
     outCornerInt.addEventListener("input", () => {
-        outsideCorners = outCornerInt.value;
+        if (outCornerInt.value == "") {
+            outsideCorners = 0;
+        } else {
+            outsideCorners = outCornerInt.value;
+        }
         reCalculate();
     });
     endCapInt.addEventListener("input", () => {
-        endCaps = endCapInt.value;
+        if (endCapInt.value == "") {
+            endCaps = 0;
+        } else {
+            endCaps = endCapInt.value;
+        }
         reCalculate();
     });
     downspoutInt.addEventListener("input", () => {
-        downSpouts = downspoutInt.value;
+        if (downspoutInt.value == "") {
+            downSpouts = 0;
+        } else {
+            downSpouts = downspoutInt.value;
+        }
         reCalculate();
     });
     elbowInt.addEventListener("input", () => {
-        elbows = elbowInt.value;
+        if (elbowInt.value == "") {
+            elbows = 0;
+        } else {
+            elbows = elbowInt.value;
+        }
         reCalculate();
     });
     dropInt.addEventListener("input", () => {
-        drops = dropInt;
+        if (dropInt.value == "") {
+            drops = 0;
+        } else {
+            drops = dropInt.value;
+        }
         reCalculate();
     });
-    leafguardBool.addEventListener("input", () => {
-        leafguard = leafguardBool.value;
+    leafguardBool.addEventListener("click", () => {
+        leafguard = leafguardBool.checked;
         reCalculate();
     });
     
