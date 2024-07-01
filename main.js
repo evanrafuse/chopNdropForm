@@ -1,3 +1,15 @@
+function showNav() {
+    mobileNav.style.display = "flex";
+    xBtn.style.display = "block";
+    hamburgerBtn.style.display = "none";
+}
+
+function hideNav() {
+    mobileNav.style.display = "none";
+    xBtn.style.display = "none";
+    hamburgerBtn.style.display = "block";
+}
+
 function prepReport() {
     console.log("Clicked Submit");
 
@@ -97,6 +109,11 @@ function main() {
     leafguard = false
 
     // ~~ doc refs ~~
+    // nav elements
+    hamburgerBtn = document.getElementById("hamburgerDiv");
+    xBtn = document.getElementById("xDiv");
+    mobileNav = document.getElementById("mobileNav");
+
     // form elements
     fnameTxt = document.getElementById("fname");
     lnameTxt = document.getElementById("lname");
@@ -110,6 +127,7 @@ function main() {
     leafguardBool = document.getElementById("leafguard");
     submitBtn = document.getElementById("submitBtn");
     resetBtn = document.getElementById("resetBtn");
+
     // report elements
     linearFootageRpt = document.getElementById("linearFootageRpt");
     insideCornerRpt = document.getElementById("insideCornerRpt");
@@ -122,6 +140,10 @@ function main() {
     totalRpt = document.getElementById("totalRpt");
 
     // Event Handling
+
+    hamburgerBtn.addEventListener("click", showNav);
+    xBtn.addEventListener("click", hideNav)
+
     fnameTxt.addEventListener("input", () => {
         firstName = fname.value;
     });
