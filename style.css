@@ -1,3 +1,9 @@
+body {
+    margin: 0;
+    font-family: fantasy;
+    font: Copperplate;
+}
+
 .form-row {
     padding-top: 10px;
 }
@@ -5,4 +11,84 @@
 #orderDiv {
     display: flex;
     flex-direction: row;
+    padding: 10px;
+}
+
+#nav {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    width: 100%;
+}
+
+#logoDiv {
+    background-color: #082e00;
+}
+
+#logo {
+    height: 50px;
+    width: 50px;
+}
+
+#pagesDiv {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-self: end;
+    width: 100%;
+    height: 50px;
+    justify-content: end;
+    background-color: #082e00;
+}
+
+.pageLink a {
+    padding: 15px;
+    background-color: #082e00;
+    text-decoration: none;
+    color: #C14D27;
+    font-weight: 600;
+}
+
+.pageLink a:hover {
+    background-color: #C14D27;
+    color: #082e00;
+}
+
+#current {
+    color: rgb(255, 255, 255);
+}
+
+.btnRow {
+    padding: 10px;
+}
+
+.btn {
+    margin-right: 3px;
+    padding: 5px;
+    border-radius: 5px;
+    font-weight: 600;
+}
+
+#submitBtn {
+    color: #ff6835;
+    background-color: #082e00;
+    border-color: #082e00;
+}
+
+#submitBtn:hover {
+    color: #ff6835;
+    background-color: #062300;
+    border-color: #062300;
+}
+
+#resetBtn {
+    color: #082e00;
+    background-color: #C14D27;
+    border-color: #C14D27;
+}
+
+#resetBtn:hover {
+    color: #062300;
+    background-color: #b43d15;
+    border-color: #b43d15;
 }

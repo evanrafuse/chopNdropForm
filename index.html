@@ -6,6 +6,15 @@
         <link rel="stylesheet" href="style.css" />
     </head>
     <body>
+        <div id="nav">
+            <a href="www.google.com" id="logoDiv"><img src="images/iconDark.png" alt="Makers Construction Logo" id="logo"></a>
+            <div id="pagesDiv">
+                <div class="pageLink"><a href="www.google.com">Home</a></div>
+                <div class="pageLink"><a id="current" href="www.google.com">Chop-N-Drop</a></div>
+                <div class="pageLink"><a href="www.google.com">Contact</a></div>
+                <div class="pageLink"><a href="www.google.com">About</a></div>
+            </div>
+        </div>
         <div id="orderDiv">
             <form id="orderForm">
                 <div class="form-row">
@@ -56,8 +65,10 @@
                     <label for="leafguard">Leafguards:</label>
                     <input type="checkbox" id="leafguard" name="leafguard"><br>
                 </div>
-                <input type="button" id="submitBtn" value="Submit">
-                <input type="button" id="resetBtn" value="Reset">
+                <div class="btnRow">
+                    <input class="btn" type="button" id="submitBtn" value="Submit">
+                    <input class="btn" type="button" id="resetBtn" value="Reset">
+                </div>
             </form>
             <div id="report">
                 <h2>Your Order:</h2>

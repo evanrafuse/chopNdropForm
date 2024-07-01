@@ -1,6 +1,11 @@
 function prepReport() {
     console.log("Clicked Submit");
-    // window.open('mailto:test@example.com?subject=subject&body=body');
+
+    body = "Hi "+fnameTxt.value+"!"
+    body = body+"\n"+"Thanks for using our Chop-N-Drop estimator tool. This is an automatically generated email with your estimated cost. Send this to us, and we'll reach out to you to arrange your purchase. If you'd like to leave an additional message please insert it below."
+    // body = body+"\n"+
+    body=encodeURIComponent(body);
+    window.open('mailto:test@example.com?subject=subject&body='+body);
 }
 
 function resetForm() {
