@@ -15,7 +15,17 @@ function prepReport() {
 
     body = "Hi "+fnameTxt.value+"!"
     body = body+"\n"+"Thanks for using our Chop-N-Drop estimator tool. This is an automatically generated email with your estimated cost. Send this to us, and we'll reach out to you to arrange your purchase. If you'd like to leave an additional message please insert it below."
-    // body = body+"\n"+
+    body = body+"\n\n"+"Your Estimate:"
+    body = body + "\n" + linearFootageRpt.innerText
+    body = body + "\n" + insideCornerRpt.innerText
+    body = body + "\n" + outsideCornerRpt.innerText
+    body = body + "\n" + endCapRpt.innerText
+    body = body + "\n" + downSpoutRpt.innerText
+    body = body + "\n" + elbowRpt.innerText
+    body = body + "\n" + dropRpt.innerText
+    body = body + "\n" + leafguardRpt.innerText;
+    body = body + "\n" + totalRpt.innerText
+    body = body + "\n\n Your Message:\n"
     body=encodeURIComponent(body);
     window.open('mailto:test@example.com?subject=subject&body='+body);
 }
@@ -213,6 +223,7 @@ function main() {
     
     submitBtn.addEventListener("click", prepReport);
     resetBtn.addEventListener("click", resetForm);
+    resetForm();
 }
 
 
